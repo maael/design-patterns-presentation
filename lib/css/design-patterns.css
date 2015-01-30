@@ -1,0 +1,13 @@
+/*
+* General Slides
+*/
+
+/*
+* Slide 2
+*/
+.s2 ul.pattern-list {
+    list-style-type: none;
+}
+.s2 ul.pattern-list li{
+    margin: 0.75em 0;
+}
