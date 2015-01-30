@@ -27,3 +27,10 @@
 .s2 ul.pattern-list li{
     margin: 0.75em 0;
 }
+
+/*
+* Remote Styles
+*/
+iframe {
+    opacity: 0;
+}
