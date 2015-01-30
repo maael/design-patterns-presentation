@@ -8,13 +8,22 @@
 .javascript-color {
     color: #f0db4f;
 }
+.red {
+    color: #D50000;
+}
+.green {
+    color: #64DD17;
+}
+.blue {
+    color: #2962FF;
+}
 
 
 /*
 * Fragment Styles
 */
 .grow-in.visible {
-    font-size: 5em;
+    font-size: 2em;
     opacity: 1;
 }
 

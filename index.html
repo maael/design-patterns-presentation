@@ -1,135 +1,188 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 
-		<title>Design Patterns</title>
+        <title>Design Patterns</title>
 
-		<meta name="description" content="A presentation on Design Patterns">
-		<meta name="author" content="Matthew Elphick">
+        <meta name="description" content="A presentation on Design Patterns">
+        <meta name="author" content="Matthew Elphick">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css" id="theme">
 
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Icons -->
-		<link rel="stylesheet" href="lib/vendor/fontello/css/design-patterns.css">
+        <!-- Icons -->
+        <link rel="stylesheet" href="lib/vendor/fontello/css/design-patterns.css">
 
-		<!-- Presentation Specific Styles -->
-		<link rel="stylesheet" href="lib/css/design-patterns.css">
+        <!-- Presentation Specific Styles -->
+        <link rel="stylesheet" href="lib/css/design-patterns.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
 
-	<body>
+    <body>
 
-		<div class="reveal">
+        <div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1><i class="icon-puzzle"></i>Design Patterns</h1>
-					<p>
-						<small>Created by <a href="http://hakim.se">Matthew Elphick</a> / <a href="http://github.com/maael"><i class="icon-github"></i>maael</a></small>
-					</p>
-				</section>
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1><i class="icon-puzzle"></i>Design Patterns</h1>
+                    <p>
+                        <small>Created by <a href="http://elphy.co.uk">Matthew Elphick</a> / <a href="http://github.com/maael"><i class="icon-github"></i>maael</a></small>
+                    </p>
+                </section>
 
-				<section class="s2">
-					<h2>Design Patterns</h2>
-					<ul class="pattern-list">
-						<li class="fragment highlight-blue grow" data-fragment-index="1"><i class="icon-eye"></i>Observer</li>
-						<li class="fragment highlight-blue grow" data-fragment-index="1"><i class="icon-child"></i>Singleton</li>
-						<li class="fragment fade-out" data-fragment-index="1"><i class="icon-brush"></i>Decorator</li>
-						<li class="fragment fade-out" data-fragment-index="1"><i class="icon-sitemap"></i>Template Method</li>
-						<li class="fragment fade-out" data-fragment-index="1"><i class="icon-users"></i>Strategy</li>
-						<li class="fragment fade-out" data-fragment-index="1"><i class="icon-plug"></i>Adapter</li>
-					</ul>
-				</section>
+                <section class="s2">
+                    <h2>Design Patterns</h2>
+                    <ul class="pattern-list">
+                        <li class="fragment highlight-blue grow" data-fragment-index="1"><i class="icon-eye"></i>Observer</li>
+                        <li class="fragment highlight-blue grow" data-fragment-index="1"><i class="icon-child"></i>Singleton</li>
+                        <li class="fragment fade-out" data-fragment-index="1"><i class="icon-brush"></i>Decorator</li>
+                        <li class="fragment fade-out" data-fragment-index="1"><i class="icon-sitemap"></i>Template Method</li>
+                        <li class="fragment fade-out" data-fragment-index="1"><i class="icon-users"></i>Strategy</li>
+                        <li class="fragment fade-out" data-fragment-index="1"><i class="icon-plug"></i>Adapter</li>
+                    </ul>
+                </section>
 
-				<section class="s3">
-					<section>
-						<h2><i class="icon-eye"></i>Observer</h2>
-					</section>
-					<section>
-						<h3>What is an Observer Pattern?</h3>
-					</section>
-				</section>
+                <section class="s3">
+                    <section>
+                        <h2><i class="icon-eye"></i>Observer</h2>
+                    </section>
+                    <section>
+                        <h3>What is an Observer Pattern?</h3>
+                    </section>
+                </section>
 
-				<section class="s3">
-					<section>
-						<h2><i class="icon-child"></i>Singleton</h2>
-					</section>
-					<section>
-						<h3>What is an Singleton Pattern?</h3>
-					</section>
-					<section>
-						<h3><i class="icon-cube"></i>Normal Object</h3>
-						<p>A normal object can be instantiated multiple times.</p>
-						<i class="icon-cubes fragment grow-in"></i>
-					</section>
-					<section>
-						<h3><i class="icon-child"></i>Singleton</h3>
-						<p class="fragment" data-fragment-index="1">A singleton is different, it can only be instantiated once.</p>
-						<p class="fragment" data-fragment-index="2">And that instantiation is globally accessible.</p>
-						<i class="icon-cube fragment grow-in" data-fragment-index="1"></i>
-						<i class="icon-globe fragment grow-in" data-fragment-index="2"></i>
-					</section>
-					<section>
-						<h3><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h3>
-					</section>
-				</section>
-			</div>
+                <section class="s3">
+                    <section>
+                        <h2><i class="icon-child"></i>Singleton</h2>
+                    </section>
+                    <section>
+                        <h3>What is a Singleton Pattern?</h3>
+                    </section>
+                    <section>
+                        <i class="icon-wrench"></i>
+                        <p>A Singleton is a type of <em>Creational Design Pattern</em>, meaning that it focuses on object creation.</p>
+                        <div class="fragment">
+                            <hr/>
+                            <i class="icon-help"></i>
+                            <p>How does a Singleton affect object creation?</p>
+                        </div>
+                    </section>
+                    <section>
+                        <h3><i class="icon-cube"></i>Normal Object</h3>
+                        <p>A normal object can be instantiated multiple times.</p>
+                        <p>
+                            <i class="icon-cubes fragment grow-in" data-fragment-index="1"></i>
+                        </p>
+                        <p>
+                            <i class="icon-down-big fragment grow-in" data-fragment-index="1"></i>
+                        </p>
+                        <p>
+                            <i class="icon-cube red fragment grow-in" data-fragment-index="1"></i>
+                            <i class="icon-cube green fragment grow-in" data-fragment-index="1"></i>
+                            <i class="icon-cube blue fragment grow-in" data-fragment-index="1"></i>
+                        </p>
+                    </section>
+                    <section>
+                        <h3><i class="icon-child"></i>Singleton</h3>
+                        <p class="fragment" data-fragment-index="1">A singleton is different, it can only be instantiated once.</p>
+                        <p class="fragment" data-fragment-index="2">And that instantiation is globally accessible.</p>
+                        <i class="icon-cube fragment grow-in" data-fragment-index="1"></i>
+                        <i class="icon-globe fragment grow-in" data-fragment-index="2"></i>
+                    </section>
+                    <section>
+                        <h3><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h3>
+                    </section>
+                    <section>
+                        <h3><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h3>
+                        <pre><code class="javascript" data-trim>
+var Singleton = function() {
+    if(Singleton.prototype._instance instanceof Singleton) {
+        return Singleton.prototype._instance;
+    } else {
+        Singleton.prototype._instance = this;
+    }
+    /* Rest of Class */
+};
+                        </code></pre>
+                        <p>The <em>_instance</em> on the prototype stores the single instance.</p>
+                        <p>On creation the object checks for a stored instance to use.</p>
+                        <p>If it can't find one, it uses the current instance.</p>
+                    </section>
+                    <section>
+                        <h3><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h3>
+                        <pre><code class="javascript" data-trim>
+var Singleton = function() {
+    if(Singleton.prototype._instance instanceof Singleton) {
+        return Singleton.prototype._instance;
+    } else {
+        Singleton.prototype._instance = this;
+    }
+};
 
-		</div>
+var a = new Singleton(),
+    b = new Singleton();
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="lib/js/remoteToggle.js"></script>
-		<script src="js/reveal.js"></script>
+    console.log(a==b); // true
+                        </code></pre>
+                    </section>
+                </section>
+            </div>
 
-		<script>
+        </div>
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+        <script src="lib/js/head.min.js"></script>
+        <script src="lib/js/remoteToggle.js"></script>
+        <script src="js/reveal.js"></script>
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+        <script>
 
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/remotes/remotes.js', async: true }
-				]
-			});
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                hideAddressBar: true,
 
-		</script>
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-	</body>
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/remotes/remotes.js', async: true }
+                ]
+            });
+
+        </script>
+
+    </body>
 </html>
