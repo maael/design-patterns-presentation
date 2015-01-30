@@ -1,7 +1,7 @@
 var util = require('util'),
     connect = require('connect'),
     serveStatic = require('serve-static'),
-    port = 80,
+    port = process.env.PORT || 3000,
     app = connect();
 
 app.use(serveStatic(__dirname)).listen(port);
