@@ -4,7 +4,7 @@ var express = require('express'),
 app.use(express.static(pub));
 
 app.get('/', function (req, res) {
-  res.render('index');
+  res.sendfile('index.html');
 });
 
 var server = app.listen(80, function () {
