@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'design-patterns';
-  src: url('../font/design-patterns.eot?54756575');
-  src: url('../font/design-patterns.eot?54756575#iefix') format('embedded-opentype'),
-       url('../font/design-patterns.woff?54756575') format('woff'),
-       url('../font/design-patterns.ttf?54756575') format('truetype'),
-       url('../font/design-patterns.svg?54756575#design-patterns') format('svg');
+  src: url('../font/design-patterns.eot?34726501');
+  src: url('../font/design-patterns.eot?34726501#iefix') format('embedded-opentype'),
+       url('../font/design-patterns.woff?34726501') format('woff'),
+       url('../font/design-patterns.ttf?34726501') format('truetype'),
+       url('../font/design-patterns.svg?34726501#design-patterns') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,7 +14,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'design-patterns';
-    src: url('../font/design-patterns.svg?54756575#design-patterns') format('svg');
+    src: url('../font/design-patterns.svg?34726501#design-patterns') format('svg');
   }
 }
 */
@@ -125,3 +125,4 @@
 .icon-left-big:before { content: '\e848'; } /* '' */
 .icon-right-big:before { content: '\e849'; } /* '' */
 .icon-up-big:before { content: '\e84a'; } /* '' */
+.icon-play:before { content: '\e84b'; } /* '' */
