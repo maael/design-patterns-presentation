@@ -117,7 +117,7 @@
                     </section>
                     <section>
                         <h3><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h3>
-                        <pre><code class="javascript" data-trim>
+                        <pre><code class="javascript" data-trim contenteditable="true">
 var Singleton = function() {
     if(Singleton.prototype._instance instanceof Singleton) {
         return Singleton.prototype._instance;
@@ -133,7 +133,7 @@ var Singleton = function() {
                     </section>
                     <section>
                         <h3><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h3>
-                        <pre><code class="javascript" data-trim>
+                        <pre><code id="codeBlock2" class="javascript" data-trim contenteditable="true">
 var Singleton = function() {
     if(Singleton.prototype._instance instanceof Singleton) {
         return Singleton.prototype._instance;
@@ -147,6 +147,7 @@ var a = new Singleton(),
 
     console.log(a==b); // true
                         </code></pre>
+                        <i data-code="codeBlock2" class="icon-play runCode"></i>
                     </section>
                 </section>
             </div>
@@ -155,6 +156,7 @@ var a = new Singleton(),
 
         <script src="lib/js/head.min.js"></script>
         <script src="lib/js/remoteToggle.js"></script>
+        <script src="lib/js/runCode.js"></script>
         <script src="js/reveal.js"></script>
 
         <script>
