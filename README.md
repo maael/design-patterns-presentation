@@ -1,2 +1,3 @@
 # Design Patterns Presentation
-For Clock Ltd.
+
+A presentation on the Observer and Singleton Design Patterns.
