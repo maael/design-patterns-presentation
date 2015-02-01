@@ -55,7 +55,7 @@
 
                 <section class="s2">
                     <h2>Design Patterns</h2>
-                    <ul class="pattern-list">
+                    <ul class="bulletless">
                         <li class="fragment highlight-blue grow" data-fragment-index="1"><i class="icon-eye"></i>Observer</li>
                         <li class="fragment highlight-blue grow" data-fragment-index="1"><i class="icon-child"></i>Singleton</li>
                         <li class="fragment fade-out" data-fragment-index="1"><i class="icon-brush"></i>Decorator</li>
@@ -108,15 +108,21 @@
                     <section>
                         <h3><i class="icon-child"></i>Singleton</h3>
                         <p class="fragment" data-fragment-index="1">A singleton is different, it can only be instantiated once.</p>
-                        <p class="fragment" data-fragment-index="2">And that instantiation is globally accessible.</p>
+                        <p class="fragment" data-fragment-index="2">And that instantiation is globally accessible, providing a single point of access.</p>
                         <i class="icon-cube fragment grow-in" data-fragment-index="1"></i>
                         <i class="icon-globe fragment grow-in" data-fragment-index="2"></i>
                     </section>
                     <section>
+                        <h3>Main difference between a <br/> <i class="icon-child"></i>Singleton & Static Classes<i class="icon-male"></i></h3>
+                        <p class="fragment">You can 'lazy load' Singletons, you can't with Static Classes.</p>
+                        <p class="fragment">Which means resources are free until they're actually used.</p>
+                    </section>
+                    <section>
                         <h3><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h3>
                     </section>
                     <section>
                         <h3><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h3>
+                        <h5>My Approach</h5>
                         <pre><code class="javascript" data-trim contenteditable="true">
 var Singleton = function() {
     if(Singleton.prototype._instance instanceof Singleton) {
@@ -132,7 +138,6 @@ var Singleton = function() {
                         <p>If it can't find one, it uses the current instance.</p>
                     </section>
                     <section>
-                        <h3><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h3>
                         <pre><code id="codeBlock2" class="javascript" data-trim contenteditable="true">
 var Singleton = function() {
     if(Singleton.prototype._instance instanceof Singleton) {
@@ -140,24 +145,142 @@ var Singleton = function() {
     } else {
         Singleton.prototype._instance = this;
     }
+    /* Rest of Class */
+    /* Private Variable */
+    var name = "test";
+    /* Public functions */
+    this.getName = function() {
+        return name;
+    }
+    this.setName = function(newName) {
+        name = newName;
+    }
 };
+var a = new Singleton(), b = Singleton();
 
-var a = new Singleton(),
-    b = new Singleton();
-
-    alert(a==b); // true
+notify("Check they are the same", a == b); // true
+notify("Check names", a.getName() == b.getName()); // true
+a.setName("new test"); // Change name
+notify("Check names after change", a.getName() == b.getName()); // true
                         </code></pre>
                         <i data-code="codeBlock2" class="icon-play runCode"></i>
                     </section>
+                    <section>
+                        <h4><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h4>
+                        <h5>Alternative Approach</h5>
+                        <pre><code class="javascript" data-trim contenteditable="true">
+var Singleton = (function() {
+    var instance;
+    function init() {
+        // Private Methods and Variables
+        return {
+            // Public Methods and Variables
+        };
+    };
+    return {
+        getInstance: function() {
+            if(!instance) {
+                instance = init();
+            }
+            return instance();
+        }
+    };
+})();
+                        </code></pre>
+                        <small>This approach is from <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/">JavaScript Design Patterns</a> by <a href="https://twitter.com/addyosmani">Addy Osmani</a></small>
+                    </section>
+                    <section>
+                        <pre><code id="codeBlock3" class="javascript" data-trim contenteditable="true">
+var Singleton = (function() {
+    var instance;
+    function init() {
+        // Private Methods and Variables
+        var name = "test";
+        return {
+            // Public Methods and Variables
+            getName: function() { return name; },
+            setName: function(newName) { name = newName; }
+        };
+    };
+    return {
+        getInstance: function() {
+            if(!instance) { instance = init(); }
+            return instance;
+        }
+    };
+})();
+var a = Singleton.getInstance(), b = Singleton.getInstance();
+
+notify("Check they are the same", a == b); // true
+notify("Check names", a.getName() == b.getName()); // true
+a.setName("new test"); // Change name
+notify("Check names after change", a.getName() == b.getName()); // true
+                        </code></pre>
+                        <i data-code="codeBlock3" class="icon-play runCode"></i>
+                    </section>
+                    <section class="comparison">
+                        <h4><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h4>
+                        <h5>Approach Notes| My Approach</h5>
+                        <ul class="bulletless dashed-list spaced-list">
+                            <li>Requires at least the first created instance to be created using the new keyword.</li>
+                            <li>The instance is accessible through the Singleton's prototype.</li>
+                        </ul>
+                    </section>
+                    <section class="comparison">
+                        <h4><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h4>
+                        <h5>Approach Notes| Alternative Approach</h5>
+                        <ul class="bulletless dashed-list spaced-list">
+                            <li>The Alternative Approach allows getInstance() to be altered, allowing subclassing.</li>
+                            <li>The Alternative Approach uses the <a href="http://yuiblog.com/blog/2007/06/12/module-pattern/">module pattern</a> using <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Closures">closures</a> via a self executing anonymous function to provide private access that requires public exposure through the returned object.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h4>
+                        <h5>Really Simple Approach<i class="icon-emo-coffee"></i></h5>
+                        <pre><code class="javascript" data-trim contenteditable="true">
+var Singleton = {};
+                        </code></pre>
+                        <p>An object literal in JavaScript is a Singleton.</p>
+                        <p>This form of Singleton has no constructor, and cannot be initialised.</p>
+                    </section>
+                    <section>
+                        <h4><i class="icon-wrench"></i>Singleton| Uses</h4>
+                        <p>Namespace Code</p>
+                        <p>Coordinate actions from a single object - for example a Database Connection Pool.</p>
+                        <p>The commonly used <a href="http://yuiblog.com/blog/2007/06/12/module-pattern/">Module Pattern</a> is a manifestation of the Singleton Pattern.</p>
+                        <small><i class="icon-attention-alt"></i>Some people, such as <a href="https://twitter.com/addyosmani">Addy Osmani</a> suggest that sometimes having to use <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#singletonpatternjavascript">Singletons in JavaScript specifically is a sign to re-evaluate the design of the code.</a></small>
+                    </section>
+                    <section>
+                        <h4><i class="icon-wrench"></i>Singleton| Used By</h4>
+                        <ul class="bulletless spaced-list">
+                            <li><a href="http://jquery.com/">jQuery</a> - $/jQuery</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4><i class="icon-attention-alt"></i>Singleton| Issues</h4>
+                        <ul class="bulletless spaced-list">
+                            <li>The Singleton Pattern relies on being globally accessible, meaning it must be added to the global namespace.</li>
+                            <li>Difficult to test, as they can have difficulty creating multiple instances for different tests, or may hide dependencies among other things.</li>
+                            <li>Can cause dependency issues due to tight coupling as anything using the Singleton relies on how the Singleton is created.
+                                <br/>
+                                <small class="pull-right"><i class="icon-attention-alt"></i>As such it is prefered by some to use Dependency Injection over Singletons.</small></li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <h2>Q & A's</h2>
+                    <p><i class="icon-comment"></i>Comments or issues?</p>
+                    <p>This presentation can be found on GitHub.</p>
+                    <p><a href="https://github.com/maael/design-patterns-presentation"><i class="icon-github"></i>maael/design-patterns-presentation</a>
                 </section>
             </div>
-
         </div>
-
+        <div id="notifications"></div>
         <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
         <script src="lib/js/remoteToggle.js"></script>
         <script src="lib/js/runCode.js"></script>
-        <script src="js/reveal.js"></script>
+        <script src="lib/js/notify.js"></script>
 
         <script>
 

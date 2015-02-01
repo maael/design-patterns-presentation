@@ -1,8 +1,10 @@
 /*
 * General Slides
 */
+body {
+    font-family: 'Source Sans Pro', Helvetica, sans-serif;
+}
 .small-note {
-    color: red;
     font-size: 0.1em;
 }
 .javascript-color {
@@ -17,7 +19,27 @@
 .blue {
     color: #2962FF;
 }
-
+.reveal pre code {
+    max-height: 80vh !important;
+}
+ul.bulletless {
+    list-style-type: none;
+}
+ul.spaced-list li {
+    margin: 0.5em 0;    
+}
+ul.dashed-list li {
+    font-size: 1em;
+    text-indent: -0.35em;
+}
+ul.dashed-list li:before {
+    content: '-';
+    position: relative;
+    left: -0.35em;
+}
+.pull-right {
+    float: right;
+}
 
 /*
 * Fragment Styles
@@ -30,10 +52,7 @@
 /*
 * Slide 2
 */
-.s2 ul.pattern-list {
-    list-style-type: none;
-}
-.s2 ul.pattern-list li{
+.s2 ul.bulletless li {
     margin: 0.75em 0;
 }
 
@@ -42,4 +61,35 @@
 */
 iframe {
     opacity: 0;
+}
+
+/*
+* Notifications
+*/
+#notifications {
+    top: 10px;
+    color: #DCDCDC;
+    left: 80%;
+    position: fixed;
+    transform: translateX(-50%);
+    width: 30%;
+    z-index: 999;
+}
+.notification {
+    background-color: #666;
+    margin: 2px;
+    padding: 0.5em;
+    position: relative;
+}
+.assertion {
+    display: inline;
+    margin-left: 1em;
+    position: absolute;
+    right: 1em;
+}
+.assertion i.icon-ok {
+    color: #64DD17;
+}
+.assertion i.icon-cancel {
+    color: #D50000;
 }
