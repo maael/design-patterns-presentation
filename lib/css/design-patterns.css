@@ -64,6 +64,58 @@ iframe {
 }
 
 /*
+* Observer Styles
+*/
+.subjects i,
+.observers i{
+    font-size: 2em;
+}
+.subjects {
+    float: left;
+    position: relative;
+    top: -0.6em;
+    vertical-align: middle;
+    width: 33%;
+}
+.subjects i {
+    line-height: 4em;
+}
+.arrows {
+    float: left;
+    text-align: center;
+    width: 33%;
+}
+.arrows i {
+    display: block;
+    font-size: 1em;
+    padding: 0.5em 0;
+    vertical-align: middle;
+}
+.arrows i:first-of-type {
+    transform: rotate(-25deg);
+}
+.arrows i:last-of-type {
+    transform: rotate(25deg);
+}
+.observers {
+    float: right;
+    position: relative;
+    top: -0.4em;
+    width: 33%;
+}
+.observers i {
+    display: block;
+}
+.observers i:first-of-type {
+    position: relative;
+    top: -0.75em;
+}
+.observers i:last-of-type {
+    position: relative;
+    top: 0.75em;
+}
+
+/*
 * Notifications
 */
 #notifications {
