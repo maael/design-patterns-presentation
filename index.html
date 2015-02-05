@@ -92,19 +92,118 @@
                         <h4 class="fragment fade-in"><i class="icon-eye"></i> Observer<span class="fragment fade-in">(s)</span></h4>
                     </section>
                     <section>
-                        <div class="subjects">
-                            <i class="icon-user"></i>
+                        <div class="diagram">
+                            <div class="subjects fragment fade-in" data-fragment-index="1">
+                                <i class="icon-user"></i>
+                            </div>
+                            <div class="arrows fragment fade-in" data-fragment-index="3">
+                                <i class="top-arrow icon-right-big"></i>
+                                <div class="fragment fade-out" data-fragment-index="6">
+                                    <i class="icon-right-big fragment fade-in" data-fragment-index="5"></i>
+                                </div>
+                                <i class="bottom-arrow icon-right-big"></i>
+                            </div>
+                            <div class="observers fragment fade-in" data-fragment-index="2">
+                                <i class="icon-eye"></i>
+                                <div class="fragment fade-out" data-fragment-index="6">
+                                    <i class="icon-eye fragment fade-in" data-fragment-index="5"></i>
+                                </div>
+                                <i class="icon-eye"></i>
+                            </div>
                         </div>
-                        <div class="arrows">
-                            <i class="icon-right-big"></i>
-                            <i class="icon-right-big"></i>
-                            <i class="icon-right-big"></i>
+                        <div class="diagram-comments">
+                            <div class="comment fragment current" data-fragment-index="1">
+                                <span class="fragment fade-out" data-fragment-index="2">
+                                    The Subject is simply an object.
+                                </span>
+                            </div>
+                            <div class="comment fragment current" data-fragment-index="2">
+                                <span class="fragment fade-out" data-fragment-index="3">
+                                    This Subject keeps a list of objects (Observers) that depend on it.
+                                </span>
+                            </div>
+                            <div class="comment fragment current" data-fragment-index="3">
+                                <span class="fragment fade-out" data-fragment-index="4">
+                                    The Subject automatically informs these Observers of any changes. 
+                                </span>
+                            </div>
+                            <div class="comment fragment current" data-fragment-index="4">
+                                <span class="fragment fade-out" data-fragment-index="5">
+                                    It does this by broadcasting a notification to the Observers. <br/>
+                                    <small>May include data relating to topic.</small>
+                                </span>
+                            </div>
+                            <div class="comment fragment current" data-fragment-index="5">
+                                <span class="fragment fade-out" data-fragment-index="6">
+                                    Subjects can add Observers.
+                                </span>                                
+                            </div>
+                            <div class="comment fragment current" data-fragment-index="6">
+                                And they can remove them.
+                            </div>
                         </div>
-                        <div class="observers">
-                            <i class="icon-eye"></i>
-                            <i class="icon-eye"></i>
-                            <i class="icon-eye"></i>
-                        </div>
+                    </section>
+                    <section>
+                        <h3><i class=""></i>Comparing the <br/> <i class="icon-eye"></i>Observer Pattern &amp; <i class="icon-chat"></i>Pub/Sub</h3>
+                        <aside class="notes">
+                            Pub/Sub = Publish/Subscribe
+                        </aside>
+                        <p class="fragment">Pub/Sub is a variation of the Observer Pattern.</p>
+                        <p class="fragment">Pub/Sub has a channel to fire and receive events on.</p>
+                        <p class="fragment">This channel avoids dependencies between the involved parties.</p>
+                        <p class="fragment">Fits into JavaScript as it works well with Event Driven approaches.</p>
+                    </section>
+                    <section>
+                        <h3><i class="icon-code"></i>Observer| <span class="small-note javascript-color">JavaScript</span></h3>
+                    </section>
+                    <section>
+                        <h3><i class="icon-code"></i>Observer| <span class="small-note javascript-color">JavaScript</span></h3>
+                        <h5>Subject</h5>
+                        <pre><code class="javascript">
+function Subject() {
+    this.observers = [];
+}
+Subject.prototype.addObserver = function(obj) {
+    this.observers.push(obj);
+};
+Subject.prototype.removeObserver = function(obj) {
+    for(var i = 0; i < this.observers.length; i++) {
+        if(this.observers[i] === obj) {
+            this.observers.splice(i, 1);
+        }
+    }
+};
+Subject.prototype.notify = function(information) {
+    for(var i = 0; i < this.observers.length; i++) {
+        this.observers[i].update(information);
+    }
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3><i class="icon-code"></i>Observer| <span class="small-note javascript-color">JavaScript</span></h3>
+                        <h5>Observer</h5>
+                        <pre><code class="javascript">
+function Observers() {}
+Observers.prototype.update = function(information) {
+    // Do something with the information
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Implementation Notes</h3>
+                        <p>This differs from some other implementation approaches as it places the list in the Subject itself.</p>
+                        <p>Some other approaches, such as the example in <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/">JavaScript Design Patterns</a> by <a href="https://twitter.com/addyosmani">Addy Osmani</a>, have the list of Observers as a separate object that the Subject then works with.</p>
+                    </section>
+                    <section>
+                        <h3><i class="icon-wrench"></i>Observer| Uses</h3>
+                        <p>Event driven systems. <span class="fragment">Such as notifications.</span></p>
+                        <p class="fragment">Allows object communication without assumptions - objects are not tightlight coupled.</p>
+                    </section>
+                    <section>
+                        <h3><i class="icon-attention-alt"></i>Observer| Issues</h3>
+                        <p>May require Mediator if Observer wants to be notified only after several Subjects trigger notifications.</p>
+                        <p>Hard to find bugs, and to track what is observing what. Usually only found at run-time.</p>
                     </section>
                 </section>
 
@@ -193,15 +292,15 @@ var Singleton = function() {
 };
 var a = new Singleton(), b = Singleton();
 
-notify("Check they are the same", a == b); // true
-notify("Check names", a.getName() == b.getName()); // true
+notify("Check they are the same", a == b);
+notify("Check names", a.getName() == b.getName());
 a.setName("new test"); // Change name
-notify("Check names after change", a.getName() == b.getName()); // true
+notify("Check names after change", a.getName() == b.getName());
                         </code></pre>
                         <i data-code="codeBlock2" class="icon-play runCode"></i>
                     </section>
                     <section>
-                        <h4><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h4>
+                        <h3><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h3>
                         <h5>Alternative Approach</h5>
                         <pre><code class="javascript" data-trim contenteditable="true">
 var Singleton = (function() {
@@ -246,15 +345,15 @@ var Singleton = (function() {
 })();
 var a = Singleton.getInstance(), b = Singleton.getInstance();
 
-notify("Check they are the same", a == b); // true
-notify("Check names", a.getName() == b.getName()); // true
+notify("Check they are the same", a == b);
+notify("Check names", a.getName() == b.getName());
 a.setName("new test"); // Change name
-notify("Check names after change", a.getName() == b.getName()); // true
+notify("Check names after change", a.getName() == b.getName());
                         </code></pre>
                         <i data-code="codeBlock3" class="icon-play runCode"></i>
                     </section>
                     <section class="comparison">
-                        <h4><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h4>
+                        <h3><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h3>
                         <h5>Approach Notes| My Approach</h5>
                         <ul class="bulletless dashed-list spaced-list">
                             <li>Requires at least the first created instance to be created using the new keyword.</li>
@@ -262,7 +361,7 @@ notify("Check names after change", a.getName() == b.getName()); // true
                         </ul>
                     </section>
                     <section class="comparison">
-                        <h4><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h4>
+                        <h3><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h3>
                         <h5>Approach Notes| Alternative Approach</h5>
                         <ul class="bulletless dashed-list spaced-list">
                             <li>The Alternative Approach allows getInstance() to be altered, allowing subclassing.</li>
@@ -270,7 +369,7 @@ notify("Check names after change", a.getName() == b.getName()); // true
                         </ul>
                     </section>
                     <section>
-                        <h4><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h4>
+                        <h3><i class="icon-code"></i>Singleton| <span class="small-note javascript-color">JavaScript</span></h3>
                         <h5>Really Simple Approach</h5>
                         <pre><code class="javascript" data-trim contenteditable="true">
 var Singleton = {};
@@ -279,20 +378,20 @@ var Singleton = {};
                         <p>This form of Singleton has no constructor, and cannot be initialised.</p>
                     </section>
                     <section>
-                        <h4><i class="icon-wrench"></i>Singleton| Uses</h4>
+                        <h3><i class="icon-wrench"></i>Singleton| Uses</h3>
                         <p>Namespace Code</p>
                         <p>Coordinate actions from a single object - for example a Database Connection Pool.</p>
                         <p>The commonly used <a href="http://yuiblog.com/blog/2007/06/12/module-pattern/">Module Pattern</a> is a manifestation of the Singleton Pattern.</p>
                         <small><i class="icon-attention-alt"></i>Some people, such as <a href="https://twitter.com/addyosmani">Addy Osmani</a> suggest that sometimes having to use <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#singletonpatternjavascript">Singletons in JavaScript specifically is a sign to re-evaluate the design of the code.</a></small>
                     </section>
                     <section>
-                        <h4><i class="icon-wrench"></i>Singleton| Used By</h4>
+                        <h3><i class="icon-wrench"></i>Singleton| Used By</h3>
                         <ul class="bulletless spaced-list">
                             <li><a href="http://jquery.com/"><img src="lib/img/jquery-mark-dark.gif"/></a></li>
                         </ul>
                     </section>
                     <section>
-                        <h4><i class="icon-attention-alt"></i>Singleton| Issues</h4>
+                        <h3><i class="icon-attention-alt"></i>Singleton| Issues</h3>
                         <ul class="bulletless spaced-list">
                             <li>The Singleton Pattern relies on being globally accessible, meaning it must be added to the global namespace.</li>
                             <li>Difficult to test, as they can have difficulty creating multiple instances for different tests, or may hide dependencies among other things.</li>

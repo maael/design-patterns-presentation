@@ -40,6 +40,22 @@ ul.dashed-list li:before {
 .pull-right {
     float: right;
 }
+.diagram {
+    height: 80%;
+}
+.diagram-comments {
+    bottom: -25%;
+    position: absolute;
+    width: 100%;
+}
+.diagram-comments > .comment {
+    display: none;
+    position: absolute;
+    top: 0;
+}
+.diagram-comments > .current {
+    display: block;
+}
 
 /*
 * Fragment Styles
@@ -91,10 +107,10 @@ iframe {
     padding: 0.5em 0;
     vertical-align: middle;
 }
-.arrows i:first-of-type {
+.arrows .top-arrow {
     transform: rotate(-25deg);
 }
-.arrows i:last-of-type {
+.arrows .bottom-arrow {
     transform: rotate(25deg);
 }
 .observers {
@@ -113,6 +129,9 @@ iframe {
 .observers i:last-of-type {
     position: relative;
     top: 0.75em;
+}
+.observers i.fragment {
+    top: 0em;
 }
 
 /*
