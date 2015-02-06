@@ -67,6 +67,10 @@ ul.dashed-list li:before {
 .inline-fragment {
     display: inline-block;
 }
+.comment-fragment {
+    position: relative;
+    top: -1.25em;
+}
 
 /*
 * Slide 2
