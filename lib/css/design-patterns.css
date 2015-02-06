@@ -64,6 +64,9 @@ ul.dashed-list li:before {
     font-size: 2em;
     opacity: 1;
 }
+.inline-fragment {
+    display: inline-block;
+}
 
 /*
 * Slide 2
